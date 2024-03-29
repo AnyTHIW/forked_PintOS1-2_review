@@ -21,6 +21,9 @@
 #include "threads/palloc.h"
 #include "threads/pte.h"
 #include "threads/thread.h"
+
+#include "threads/synch.h"
+
 #ifdef USERPROG
 #include "userprog/process.h"
 #include "userprog/exception.h"
@@ -128,6 +131,8 @@ main (void) {
 #endif
 
     printf ("Boot complete.\n");
+
+    sema_self_test();
 
     /* Run actions specified on kernel command line. */
     run_actions (argv);
